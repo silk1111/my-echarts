@@ -1,26 +1,78 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<template >
+  <div :class="'default '+theme">
+   <router-view></router-view>
+  </div>
+ 
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import { mapState } from 'vuex';
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    
+  },
+  computed:{
+    ...mapState(['theme'])
+  },
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="less">
+a {
+  text-decoration: none;
+
+}
+.default {
+  @import "@/assets/lightTheme.less";
+  background-color: @backGroundColor;
+  .nav-wrapper {
+    background-color:@navColor ;
+    .nav {
+      background-color:@navColor ;
+
+    }
+  }
+  .login-wrapper {
+    background-color: @backGroundColor;
+    .login-form {
+      background-color: @loginFormColor;
+      .login-button {
+        background-color: @loginButtonColor;
+      }
+    }
+  }
+  .theme-wrapper {
+    color: @fontColor;
+  }
+}
+   .light  {
+  .default;
+}
+
+.dark{
+  @import "@/assets/darkTheme.less";
+  background-color: @backGroundColor;
+  .nav-wrapper {
+    background-color:@navColor ;
+    .nav {
+      background-color:@navColor ;
+
+    }
+  }
+  .login-wrapper {
+    background-color: @backGroundColor;
+    .login-form {
+      background-color: @loginFormColor;
+      .login-button {
+        background-color: @loginButtonColor;
+
+      }
+    }
+
+  }
+  .theme-wrapper {
+    color: @fontColor;
+  }
 }
 </style>

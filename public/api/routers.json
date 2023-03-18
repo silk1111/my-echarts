@@ -1,0 +1,53 @@
+{
+    "ret":true,
+    "status": 200,
+    "message":"成功",
+    "routers":[{
+        "path":"/echarts",
+        "component":"MyEcharts",
+        "children":[
+            {
+                "path":"bing",
+                "component":"echarts/BingPic",
+                "meta":{
+                    "roles":["2"],
+                    "path":"/echarts/bing",
+                    "navName":"饼图"
+                }
+            },
+            {
+                "path":"zhu",
+                "component":"echarts/ZhuPic",
+                "meta":{
+                    "roles":["2"],
+                    "path":"/echarts/zhu",
+                    "navName":"柱状图"
+                }
+            },
+            {
+                "path":"tiao",
+                "component":"echarts/TiaoPic",
+                "meta":{
+                    "roles":["2"],
+                    "path":"/echarts/tiao",
+                    "navName":"条图"
+                }
+            },
+            {
+                "path":"other",
+                "component":"echarts/OtherPic",
+                "meta":{
+                    "roles":["2"],
+                    "path":"/echarts/other",
+                    "navName":"其他图形"
+                }
+            }
+
+        ],
+        "meta":{
+            "roles":["2"],
+            "path":"/echarts",
+            "navName":"默认echarts"
+        }
+    }]
+}
